@@ -17,11 +17,19 @@ const test = {
    cors_allow:  'http://localhost:3000'
  }
 };
-
+const production = {
+  app: {
+    port: parseInt(process.env.PROD_APP_PORT) || 3000,
+    host: parseInt(process.env.PROD_APP_HOST) || 'localhost',
+    cors_allow:  '*'
+  }
+ };
+ 
  
 const config = {
  dev,
- test
+ test,
+ production
 };
 
 module.exports = config[env];
