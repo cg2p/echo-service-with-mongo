@@ -7,10 +7,13 @@ const health = require('@cloudnative/health-connect');
 let healthcheck = new health.HealthChecker();
 
 const config = require('./config');
-
 const echo = require("./routes/echo.route");
 
 const server = express();
+
+var host = config.host;
+var port = config.port;
+var cors_allow = config.cors_allow;
 
 // Bodyparser middleware
 server.use(
@@ -22,7 +25,7 @@ server.use(bodyParser.json());
 
 // CORS accept
 server.use(cors({
-  origin: config.app.cors_allow,
+  origin: cors_allow,
   credentials: true
 }));
 
@@ -33,11 +36,11 @@ server.use('/ready', health.ReadinessEndpoint(healthcheck));
 server.use('/health', health.HealthEndpoint(healthcheck));
 //server.use('/metrics', require('appmetrics-prometheus').endpoint());
 
-server.listen(config.app.port, config.app.host, (err) => {
+server.listen(port, host, (err) => {
     if (err) {
       return console.log('something bad happened', err)
     }
   
     console.log('Build version: %s', process.env.version);
-    console.log('Server ready on %s %s', config.app.host, config.app.port);
+    console.log('Server ready on %s %s', host, port);
   })

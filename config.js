@@ -1,35 +1,17 @@
 // config.js
 require('dotenv').config(); // this loads the defined variables from .env
 
-const env = process.env.NODE_ENV; // 'dev' or 'test'
-
-const dev = {
- app: {
-   port: parseInt(process.env.DEV_APP_PORT) || 3000,
-   host: parseInt(process.env.DEV_APP_HOST) || 'localhost',
-   cors_allow:  '*'
- }
-};
-const test = {
- app: {
-   port: parseInt(process.env.TEST_APP_PORT) || 3001,
-   host: parseInt(process.env.TEST_APP_HOST) || 'localhost',
-   cors_allow:  'http://localhost:3000'
- }
-};
-const production = {
-  app: {
-    port: parseInt(process.env.PROD_APP_PORT) || 3000,
-    host: parseInt(process.env.PROD_APP_HOST) || 'localhost',
-    cors_allow:  '*'
-  }
- };
- 
- 
 const config = {
- dev,
- test,
- production
+   // 'dev' or 'test'
+  env: process.env.NODE_ENV,
+
+  port: parseInt(process.env.ECHO_SERVICE_PORT) || 3000,
+  host: parseInt(process.env.ECHO_SERVICE_HOST) || 'localhost',
+  
+  // cors
+  cors_allow:  '*'
 };
 
-module.exports = config[env];
+ 
+
+module.exports = config;
