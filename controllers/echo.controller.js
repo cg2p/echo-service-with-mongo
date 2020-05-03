@@ -12,3 +12,13 @@ res.json({
 });
 console.log("/echo fired with %s", txt);
 };
+
+//reverse
+exports.reverse = function (req, res) {
+  var txt = req.body.reverseInput;
+  var rev = txt.split("").reverse().join("");
+  res.json({
+    reverseOutput: rev 
+  });
+  console.log("/reverse fired returning %s", rev);
+  };
