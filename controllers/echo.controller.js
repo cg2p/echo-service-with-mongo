@@ -6,19 +6,19 @@ exports.ping = function (req, res) {
 
 //echo
 exports.echo = function (req, res) {
-const txt = req.body.echoText;
+const txt = req.body.inputText;
 res.json({
-  echoResponse: txt 
+  outputText: txt 
 });
 console.log("/echo fired with %s", txt);
 };
 
 //reverse
 exports.reverse = function (req, res) {
-  var txt = req.body.reverseInput;
+  var txt = req.body.inputText;
   var rev = txt.split("").reverse().join("");
   res.json({
-    reverseOutput: rev 
+    outputText: rev 
   });
   console.log("/reverse fired returning %s", rev);
   };

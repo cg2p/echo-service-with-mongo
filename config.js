@@ -5,8 +5,8 @@ const config = {
    // 'dev' or 'test'
   env: process.env.NODE_ENV,
 
-  port: parseInt(process.env.ECHO_SERVICE_PORT) || 3000,
-  host: parseInt(process.env.ECHO_SERVICE_HOST) || 'localhost',
+  port: parseInt(process.env.SERVICE_PORT) || 3001,
+  host: parseInt(process.env.SERVICE_HOST) || 'localhost',
   
   // cors
   cors_allow:  '*'

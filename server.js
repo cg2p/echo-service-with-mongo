@@ -11,8 +11,11 @@ const echo = require("./routes/echo.route");
 
 const server = express();
 
-var host = config.host;
-var port = config.port;
+//var host = config.host;
+//var port = config.port;
+var host = '0.0.0.0';
+var port = 3000;
+
 var cors_allow = config.cors_allow;
 
 // Bodyparser middleware
