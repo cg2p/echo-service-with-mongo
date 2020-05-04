@@ -1,9 +1,11 @@
-# Echo Service
-Simple Echo REST API service using Node and Express.
+# Echo Service with Mongo DB
+Simple Echo REST API service using Node and Express storing data in Mongo
 
 ```
 GET / > returns simple ping message
-POST /echo > echos back the text posted to it
+POST /echo > echoes back the text posted to it and stores the data
+POST /reverse > echoes back the reverse of the text posted to it and stores the data
+
 ```
 
 ## Run
