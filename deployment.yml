@@ -19,11 +19,9 @@ spec:
     spec:
       containers:
       - image: echo-service
-        name: echo-service
-        imagePullPolicy: Never
-        resources: {}
-        ports:
-          - containerPort: 3000
+      name: echo-service
+      ports:
+      - containerPort: 3000
 status: {}
 ---
 apiVersion: v1
