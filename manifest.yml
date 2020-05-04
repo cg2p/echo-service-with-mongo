@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: echo-service
+  name: echo-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: echo-service
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: echo-service
+    spec:
+      containers:
+      - image: echo-service
+        name: echo-service
+        imagePullPolicy: Never
+        resources: {}
+        ports:
+          - containerPort: 3000
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: echo-service-api
+spec:
+  selector:
+    app: echo-service
+  ports:
+  - protocol: TCP
+    port: 3000
+    targetPort: 3000
+  type: LoadBalancer
