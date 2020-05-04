@@ -18,10 +18,10 @@ spec:
         app: echo-service
     spec:
       containers:
-      - image: echo-service
-      name: echo-service
-      ports:
-      - containerPort: 3000
+      - name: echo-service
+        image: echo-service
+        ports:
+        - containerPort: 3000
 status: {}
 ---
 apiVersion: v1
