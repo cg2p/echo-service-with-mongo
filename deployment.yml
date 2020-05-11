@@ -6,7 +6,7 @@ metadata:
     app: echo-service
   name: echo-service
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: echo-service
@@ -22,6 +22,12 @@ spec:
         image: echo-service
         ports:
         - containerPort: 3000
+        env:
+          - name: BINDING
+            valueFrom:
+              secretKeyRef:
+                name: binding-db-mongo-swp
+                key: binding
 status: {}
 ---
 apiVersion: v1

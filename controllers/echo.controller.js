@@ -1,24 +1,48 @@
-//ping
-exports.ping = function (req, res) {
-  res.send('ping!\n');
+const echoService = require('../services/echo.service');
+
+// ping
+exports.ping = function (request, response) {
+  response.send('ping!\n');
   console.log("/ ping fired");
 };
 
-//echo
-exports.echo = function (req, res) {
-const txt = req.body.inputText;
-res.json({
-  outputText: txt 
-});
-console.log("/echo fired with %s", txt);
+// echo
+// setEcho false to store as is
+exports.echo = function (request, response) { 
+  echoService.setEcho(request.body.uid, request.body.inputText, false)
+      .then(function (echoes) {
+        console.log("/ echo fired");
+        response.send(echoes);
+      })
+      .catch(function (err) {
+          console.log(err);
+          response.status(500).send(err);
+      });
 };
 
-//reverse
-exports.reverse = function (req, res) {
-  var txt = req.body.inputText;
-  var rev = txt.split("").reverse().join("");
-  res.json({
-    outputText: rev 
-  });
-  console.log("/reverse fired returning %s", rev);
-  };
+// reverse
+// setEcho true to store as reversed
+exports.reverse = function (request, response) {
+  echoService.setEcho(request.body.uid, request.body.inputText, true)
+      .then(function (echoes) {
+        console.log("/ reverse fired");
+        response.send(echoes);
+      })
+      .catch(function (err) {
+          console.log(err);
+          response.status(500).send(err);
+      });
+};
+
+// echoes
+exports.echoes =  function (request, response) {
+  echoService.getEchoes(request.body.uid)
+      .then(function (echoes) {
+        console.log("/ echoes fired");
+        response.send(echoes);
+      })
+      .catch(function (err) {
+          console.log(err);
+          response.status(500).send(err);
+      });
+};

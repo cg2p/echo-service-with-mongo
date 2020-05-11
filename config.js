@@ -1,17 +1,50 @@
 // config.js
 require('dotenv').config(); // this loads the defined variables from .env
 
-const config = {
-   // 'dev' or 'test'
-  env: process.env.NODE_ENV,
+const env = process.env.NODE_ENV; // 'dev' or 'prod'
+console.log("environment is %s", env);
 
+// DEV
+const dev = {
+  // environment
+  env: process.env.NODE_ENV,
+  version: process.env.VERSION,
   port: parseInt(process.env.SERVICE_PORT) || 3001,
-  host: parseInt(process.env.SERVICE_HOST) || 'localhost',
+  host: parseInt(process.env.SERVICE_HOST) || '0.0.0.0',
   
   // cors
-  cors_allow:  '*'
+  cors_allow:  '*',
+
+  // db
+  db: {
+    host: process.env.DEV_DB_HOST,
+    port: parseInt(process.env.DEV_DB_PORT),
+    name: process.env.DEV_DB_NAME
+  },
+
 };
 
- 
+// PROD
+const prod = {
+  // environment
+  env: process.env.NODE_ENV,
+  version: process.env.VERSION,
+  port: parseInt(process.env.SERVICE_PORT) || 3001,
+  host: parseInt(process.env.SERVICE_HOST) || '0.0.0.0',
+  
+  // cors
+  cors_allow:  '*',
 
-module.exports = config;
+  // db
+  db: {
+    binding: process.env.BINDING
+  },
+
+};
+
+const config = {
+  dev,
+  prod
+ };
+ 
+module.exports = config[env];

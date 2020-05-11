@@ -4,7 +4,9 @@
   "description": "Basic Echo REST service",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "build": "npm build",
+    "dev": "NODE_ENV=dev nodemon server.js",
+    "start": "NODE_ENV=prod node server.js"
   },
   "keywords": [],
   "author": "cg2p",
@@ -14,7 +16,8 @@
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
-    "http": "0.0.0"
+    "http": "0.0.0",
+    "mongoose": "^5.9.12"
   },
   "devDependencies": {}
 }

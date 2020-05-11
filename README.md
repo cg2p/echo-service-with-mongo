@@ -11,7 +11,7 @@ POST /reverse > echoes back the reverse of the text posted to it and stores the 
 ## Run
 Start using scripts in package.json. Will run on localhost:3000 as default.
 ```
-npm run dev
+npm run start
 ```
 
 # Test
@@ -29,7 +29,7 @@ $ curl -H "Content-Type: application/json" -X POST -d '{"echoText":"bob"}' http:
 
 POST /reverse
 ```
-$ curl -H "Content-Type: application/json" -X POST -d '{"reverseInput":"very good"}' http://localhost:3000/reverse
+$ curl -H "Content-Type: application/json" -X POST -d '{"inputText":"very good"}' http://localhost:3000/reverse
 > {"reverseOutput":"doog yrev"}
 ```
 
