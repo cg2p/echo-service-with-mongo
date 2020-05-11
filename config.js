@@ -37,7 +37,8 @@ const prod = {
 
   // db
   db: {
-    binding: process.env.BINDING
+    binding: process.env.BINDING,
+    name: process.env.DB_NAME
   },
 
 };

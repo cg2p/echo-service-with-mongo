@@ -23,6 +23,7 @@ var host = config.host;
 var port = config.port;
 var version = config.version;
 var cors_allow = config.cors_allow;
+var dbname = config.db.name;
 
 var connectionString;
 
@@ -30,7 +31,8 @@ if (config.env == 'dev') {
 
   let options = {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    dbName = dbname
   };
 
   connectionString = `mongodb://${config.db.host}:${config.db.port}/${config.db.name}`;
@@ -57,8 +59,9 @@ if (config.env == 'dev') {
         ssl: true,
         sslValidate: true,
         sslCA: ca,
-        useUnifiedTopology: true
-    };
+        useUnifiedTopology: true,
+        dbName = dbname
+      };
 
     // Extract the database username and password
     let authentication = mongodbConn.authentication;
