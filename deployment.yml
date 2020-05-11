@@ -3,23 +3,23 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: echo-service
-  name: echo-service
+    app: echo-service-with-mongo
+  name: echo-service-with-mongo
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: echo-service
+      app: echo-service-with-mongo
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: echo-service
+        app: echo-service-with-mongo
     spec:
       containers:
-      - name: echo-service
-        image: echo-service
+      - name: echo-service-with-mongo
+        image: echo-service-with-mongo
         ports:
         - containerPort: 3000
         env:
@@ -33,10 +33,10 @@ status: {}
 apiVersion: v1
 kind: Service
 metadata:
-  name: echo-service-api
+  name: echo-service-with-mongo-api
 spec:
   selector:
-    app: echo-service
+    app: echo-service-with-mongo
   ports:
   - protocol: TCP
     port: 3000
