@@ -9,7 +9,7 @@ const dev = {
   // environment
   env: process.env.NODE_ENV,
   version: process.env.VERSION,
-  port: parseInt(process.env.SERVICE_PORT) || 3001,
+  port: parseInt(process.env.SERVICE_PORT) || 3000,
   host: parseInt(process.env.SERVICE_HOST) || '0.0.0.0',
   
   // cors
@@ -29,7 +29,7 @@ const prod = {
   // environment
   env: process.env.NODE_ENV,
   version: process.env.VERSION,
-  port: parseInt(process.env.SERVICE_PORT) || 3001,
+  port: parseInt(process.env.SERVICE_PORT) || 3000,
   host: parseInt(process.env.SERVICE_HOST) || '0.0.0.0',
   
   // cors

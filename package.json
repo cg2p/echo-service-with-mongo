@@ -1,8 +1,8 @@
 {
-  "name": "echo-service",
+  "name": "echo-service-with-mongo",
   "version": "1.0.0",
-  "description": "Basic Echo REST service",
-  "main": "index.js",
+  "description": "Simple Echo REST API service using Node and Express storing data in Mongo",
+  "main": "server.js",
   "scripts": {
     "build": "npm build",
     "dev": "NODE_ENV=dev nodemon server.js",

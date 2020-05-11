@@ -17,7 +17,7 @@ npm run start
 # Test
 GET /
 ```
-$ curl http://localhost:3000
+$ curl http://localhost:3001
 > ping!
 ```
 
