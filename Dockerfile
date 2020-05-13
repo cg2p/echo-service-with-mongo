@@ -12,6 +12,7 @@ RUN npm install
 COPY . /usr/src/app
 
 ENV DB_NAME="echo-prod"
+ENV NODE_ENV="prod"
 
 EXPOSE 3000
 

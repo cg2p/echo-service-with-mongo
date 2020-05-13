@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm build",
     "dev": "NODE_ENV=dev nodemon server.js",
-    "start": "NODE_ENV=prod node server.js"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "cg2p",

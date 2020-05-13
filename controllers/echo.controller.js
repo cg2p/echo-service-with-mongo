@@ -2,7 +2,7 @@ const echoService = require('../services/echo.service');
 
 // ping
 exports.ping = function (request, response) {
-  response.send('ping!\n');
+  response.json({outputText: 'ping!'});
   console.log("/ ping fired");
 };
 
