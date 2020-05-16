@@ -32,6 +32,7 @@ POST /reverse
 $ curl -H "Content-Type: application/json" -X POST -d '{"inputText":"very good"}' http://localhost:3000/reverse
 > {"reverseOutput":"doog yrev"}
 ```
+curl -H "Content-Type: application/json" -X POST -d '{"uid":"789", "inputText":"very good"}' http://173.193.79.169:32743/echo
 
 ## Config
 Uses a config parameter module, plus dotenv for secrets and globals. Rename `env.CHANGEME` to `.env` (which is in .gitignore). 
