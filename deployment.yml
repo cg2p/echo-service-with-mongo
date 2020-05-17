@@ -1,25 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
   labels:
-    app: echo-service-with-mongo
+    app: app
   name: echo-service-with-mongo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: echo-service-with-mongo
+      app: app
   strategy: {}
   template:
     metadata:
-      creationTimestamp: null
       labels:
-        app: echo-service-with-mongo
+        app: app
     spec:
       containers:
-      - name: echo-service-with-mongo
-        image: echo-service-with-mongo
+      - name: echo-service-with-mongo-container
+        image: echo-service-with-mongo-image
         ports:
         - containerPort: 3000
         env:
@@ -28,6 +26,9 @@ spec:
               secretKeyRef:
                 name: binding-db-mongo-swp
                 key: binding
+        envFrom:
+          - configMapRef:
+              name: echo-service-with-mongo-config
 status: {}
 ---
 apiVersion: v1
@@ -36,9 +37,16 @@ metadata:
   name: echo-service-with-mongo-api
 spec:
   selector:
-    app: echo-service-with-mongo
+    app: app
   ports:
   - protocol: TCP
     port: 3000
     targetPort: 3000
   type: LoadBalancer
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: echo-service-with-mongo-config
+data:
+  TESTVAR: myvar
