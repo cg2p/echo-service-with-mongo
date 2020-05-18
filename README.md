@@ -38,3 +38,4 @@ curl -H "Content-Type: application/json" -X POST -d '{"uid":"789", "inputText":"
 Uses a config parameter module, plus dotenv for secrets and globals. Rename `env.CHANGEME` to `.env` (which is in .gitignore). 
 
 
+## Build activities
