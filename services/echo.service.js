@@ -3,14 +3,12 @@ const EchoSchema = require('../models/echo.model');
 // Put echo into the database
 exports.setEcho = function (uid, txt, reverse) {
     console.log(uid);   
-
-    let setText = txt;
-    if (reverse) {
-        setText = txt.split("").reverse().join("");
-
-    }
-
     return new Promise(function (resolve, reject) {
+        let setText = txt;
+        if (reverse) {
+            setText = txt.split("").reverse().join("");
+        }
+
         // we call on the connection to return us all the documents in the words collection.
         EchoSchema(
                 {
@@ -20,16 +18,12 @@ exports.setEcho = function (uid, txt, reverse) {
                     dateCreated: Date.now()
                 }
             )
-       /*     .save(function (err) {
-                if (err) throw(err);
-            });*/
-            
-            .save(function (err, echoes) {
+            .save(function (err, echoe) {
                 if (err) {
                     reject(err);
                 } else {
-                    console.log(echoes);
-                    resolve(echoes);
+                    console.log(echoe);
+                    resolve(echoe);
                 }
             });
     });
