@@ -35,7 +35,6 @@ spec:
         envFrom:
           - configMapRef:
               name: echo-service-with-mongo-config
-status: {}
 ---
 apiVersion: v1
 kind: Service
@@ -49,7 +48,7 @@ spec:
   - protocol: TCP
     port: 3000
     targetPort: 3000
-  type: NodePort
+  type: LoadBalancer
 ---
 apiVersion: v1
 kind: ConfigMap

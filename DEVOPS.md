@@ -41,8 +41,11 @@ ibmcloud ks cluster service bind --cluster swp-cluster --namespace swp-ns --serv
 > Namespace:     swp-ns   
 > Secret Name:   binding-db-mongo-swp   
 
-# 
-kubectl get secrets --namespace=prod
-> shows list incl. secret just created 'binding-db-mongo-swp'
+# deploy ie via toolchain
+kubectl apply -f deployment.yml
 
-kubectl get secret --namespace=prod binding-db-mongo-swp
+# create a s
+kubectl create secret generic echo-service-url --from-literal=echo_service_url=http://173.193.79.114:31618/ --namespace  swp-ns 
+
+# show secrets
+kubectl get secrets --namespace=swp-ns
