@@ -14,6 +14,7 @@ var port = 3001;
 
 console.log("host: %s", host);
 console.log("port: %s", port);
+console.log("hello");
 
 var version = process.env.VERSION;
 var cors_allow = process.env.CORS_ALLOW || '*';
