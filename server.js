@@ -9,8 +9,8 @@ let healthcheck = new health.HealthChecker();
 const echo = require('./routes/echo.route');
 const db = require('./utils/db');
 
-var host = process.env.SERVICE_HOST || '0.0.0.0';
-var port = process.env.SERVICE_PORT || 3000;
+var host = '0.0.0.0';
+var port = 3001;
 
 console.log("host: %s", host);
 console.log("port: %s", port);

@@ -49,3 +49,5 @@ kubectl create secret generic echo-service-url --from-literal=echo_service_url=h
 
 # show secrets
 kubectl get secrets --namespace=swp-ns
+
+
