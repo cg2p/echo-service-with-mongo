@@ -56,4 +56,4 @@ metadata:
   name: echo-service-with-mongo-config
   namespace: swp-ns
 data:
-  TESTVAR: myvar
+  DB_NAME: echo-prod
