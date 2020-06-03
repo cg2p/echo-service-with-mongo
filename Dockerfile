@@ -11,6 +11,7 @@ RUN npm install
 # Bundle app source
 COPY . /usr/src/app
 
+ENV NODE_ENV prod
 EXPOSE 3001
 
 CMD [ "npm", "run", "start" ]

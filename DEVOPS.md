@@ -49,5 +49,11 @@ kubectl create secret generic echo-service-url --from-literal=echo_service_url=h
 
 # show secrets
 kubectl get secrets --namespace=swp-ns
+```
 
+## Debugging / logs
+```
+kubectl get pods -n swp-ns
+kubectl logs echo-service-with-mongo-74db8c95fb-9nn6k -n swp-ns
 
+```
