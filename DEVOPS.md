@@ -44,8 +44,19 @@ ibmcloud ks cluster service bind --cluster swp-cluster --namespace swp-ns --serv
 # deploy ie via toolchain
 kubectl apply -f deployment.yml
 
-# create a s
-kubectl create secret generic echo-service-url --from-literal=echo_service_url=http://173.193.79.114:31618/ --namespace  swp-ns 
+# create or update (delete and create) a secret
+# usually when backend service redeploy and gets new IP address
+kubectl delete secret echo-service-url -n swp-ns
+kubectl create secret generic echo-service-url --from-literal=echo_service_url=http://173.193.79.114:32261/ --namespace  swp-ns 
+
+```
+0. cluster - target group - cluster ns - container registry ns
+1. create db 
+3. deploy echo-service - which creates namespace - get endpoint
+3. create binding
+4. create service url
+5. deploy echo-next-client
+
 
 # show secrets
 kubectl get secrets --namespace=swp-ns

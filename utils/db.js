@@ -44,10 +44,12 @@ exports.connect = async function () {
     }
     
     if (connectionString) {
+        console.log("connection string %s", connectionString);
+        console.log("connection options %s", options);
+
         try {
-            console.log("connection string %s", connectionString);
-            console.log("connection options %s", options);
             await mongoose.connect(connectionString, options);
+            console.log("successfully connected");
         } catch (err) {
             throw err;
         }

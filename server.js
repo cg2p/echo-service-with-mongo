@@ -9,12 +9,11 @@ let healthcheck = new health.HealthChecker();
 const echo = require('./routes/echo.route');
 const db = require('./utils/db');
 
-var host = '0.0.0.0';
-var port = 3001;
+var host = process.env.SERVICE_HOST || '0.0.0.0';
+var port = process.env.SERVICE_PORT || 3001;
 
 console.log("host: %s", host);
 console.log("port: %s", port);
-console.log("hello2");
 
 var version = process.env.VERSION;
 var cors_allow = process.env.CORS_ALLOW || '*';
@@ -23,7 +22,6 @@ console.log("cors_allow: %s", cors_allow);
 // try connection to mongo
 try {
   db.connect();
-  console.log("successfully connected");
 } catch (err) {
   console.log("error connecting %s", err);
 }

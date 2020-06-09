@@ -18,12 +18,12 @@ exports.setEcho = function (uid, txt, reverse) {
                     dateCreated: Date.now()
                 }
             )
-            .save(function (err, echoe) {
+            .save(function (err, echo) {
                 if (err) {
                     reject(err);
                 } else {
-                    console.log(echoe);
-                    resolve(echoe);
+                    console.log(echo);
+                    resolve(echo);
                 }
             });
     });
